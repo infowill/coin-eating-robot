@@ -1,0 +1,20 @@
+<xml xmlns="https://developers.google.com/blockly/xml"><variables></variables><block type="pxt-on-start" id="R{,W*bE)_A.q*?Sc6;^=" x="0" y="0"><comment pinned="false" h="111" w="359">On start, set ultrasonic pins to 
+(Trig:P2 | Echo:P12) and
+set servo position to 0 degree.</comment><statement name="HANDLER"><block type="set_ultrasonic_trig_echo" id="{M3Tfoa8c+h9g|}NWHr*"><field name="pins">RekabitUltrasonicIOPins.p2_p12</field><next><block type="rekabit_set_servo_position" id="v~uZ}~g+}-d)0|C*SWt9"><field name="servo">ServoChannel.S1</field><value name="position"><shadow type="math_number_minmax" id="+zWbZJj8$VSt6OMMrWl~"><mutation min="0" max="180" label="Position" precision="0"></mutation><field name="SLIDER">0</field></shadow></value></block></next></block></statement></block><block type="device_forever" id=":=+bl0Z)2i%AA}Q;l6I]" x="2" y="205"><comment pinned="false" h="388" w="359">Always check ultrasonic reading. If an object is detected at less than 10 cm away, then...
+
+play 'power up' melody 
+
+wait 500 ms
+
+set servo position to 110 degrees (i.e. to open the mouth and raise the holder to drop the coin.
+
+wait 500 ms
+
+set servo position back to 0 degree (i.e. to close the mouth and return the holder to initial position)
+
+
+
+
+else,
+
+clear screen</comment><statement name="HANDLER"><block type="controls_if" id="|m.]ObSZPdR8[[%O.dZY"><value name="IF0"><shadow type="logic_boolean" id="ME;kT@{3lOha:]43%2q,"><field name="BOOL">TRUE</field></shadow><block type="ultrasonic_compare_value" id="2R%I/!OFa8N$?QIu3G+-"><field name="compareType">RekabitAnalogCompareType.LessThan</field><value name="threshold"><shadow type="math_number_minmax" id="`3,(@KxIK15Refa(IJnt"><mutation min="1" label="Threshold" precision="0"></mutation><field name="SLIDER">10</field></shadow></value></block></value><statement name="DO0"><block type="device_start_melody" id="5yd7j#K7T`jGR2NJ*TZB"><field name="options">MelodyOptions.Once</field><value name="melody"><block type="device_builtin_melody" id="6D=WiTO`kl#I._Z}o:55"><field name="melody">Melodies.PowerUp</field></block></value><next><block type="device_pause" id="k;XpIdohJkp27pH+2t9H"><value name="pause"><shadow type="timePicker" id="f1:`|%)T95TD;nUVE@la"><field name="ms">500</field></shadow></value><next><block type="rekabit_set_servo_position" id="@x`qi0CN`r3!J(8/zZ?S"><field name="servo">ServoChannel.S1</field><value name="position"><shadow type="math_number_minmax" id="f!*{c1`4U`_oHc~Wq!B+"><mutation min="0" max="180" label="Position" precision="0"></mutation><field name="SLIDER">110</field></shadow></value><next><block type="device_pause" id="2Nae6Wq`@L#h/v1h+n[h"><value name="pause"><shadow type="timePicker" id="e7]i{]f6XaR0J.ak~w`3"><field name="ms">500</field></shadow></value><next><block type="rekabit_set_servo_position" id="jEg?S^R~:G2sZo(ukAV:"><field name="servo">ServoChannel.S1</field><value name="position"><shadow type="math_number_minmax" id="!t~-z:|=tRsI?tWS*Zke"><mutation min="0" max="180" label="Position" precision="0"></mutation><field name="SLIDER">0</field></shadow></value><next><block type="device_pause" id="VU?m3RwL76g9`K@uTEVy"><value name="pause"><shadow type="timePicker" id="uKy+a,rEmEHGxY7nRI3T"><field name="ms">1000</field></shadow></value></block></next></block></next></block></next></block></next></block></next></block></statement></block></statement></block></xml>
